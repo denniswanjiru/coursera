@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
+
 import "./styles.scss";
 import { CountriesContext } from '../../contexts/countries';
 
-export default function GridList({ countries }) {
+export default function GridList() {
   const { loading,  listedCountries } = useContext(CountriesContext)
 
   if(loading) return <div className="loader">Loading...</div>
