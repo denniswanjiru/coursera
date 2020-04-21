@@ -6,3 +6,9 @@ html, body, * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+
+.loader {
+  height: 500px;
+  display: grid;
+  place-items: center;
+}

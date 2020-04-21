@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
-import { ApolloProvider, ApolloConsumer } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
 
 import './index.scss';
 import App from './components/App';
+import { CountriesContextProvider } from './contexts/countries';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -21,11 +22,9 @@ const client  = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <ApolloConsumer>
-        {
-          client => <App client={client} />
-        }
-      </ApolloConsumer>
+      <CountriesContextProvider>
+        <App />
+      </CountriesContextProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
