@@ -1,0 +1,22 @@
+.search {
+  display: grid;
+  place-items: center;
+
+  &-input {
+    width: 300px;
+    outline: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: solid 1px darkcyan;
+  }
+
+  &-button {
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 40px;;
+    padding: 10px 20px;
+    background: darkcyan;
+  }
+}

@@ -1,23 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CountriesContext } from '../../contexts/countries';
 
-export default function SearchBar({ setSearchQuery, searchQuery, handleAddToList }) {
+import "./styles.scss";
+
+export default function SearchBar() {
+  const { searchQuery, setSearchQuery, getCountry } = useContext(CountriesContext)
+
   const handleChange = (e) => {
     const country = e.target.value;
-    setSearchQuery(country);
+    setSearchQuery(country.toUpperCase());
   }
 
   const handleSubmit =(e) => {
-    // do something
     e.preventDefault();
-    handleAddToList();
+    getCountry();
     setSearchQuery("");
   }
 
   return (
     <div className="search">
       <form onSubmit={handleSubmit}>
-        <input value={searchQuery} onChange={handleChange} type="text" className="search-input" placeholder="Enter country Name"/>
-        <button type="submit" >Add Country</button>
+        <input value={searchQuery} onChange={handleChange} type="text" className="search-input" placeholder="Enter country code"/>
+        <button className="search-button" type="submit" >Add Country</button>
       </form>
     </div>
   )
